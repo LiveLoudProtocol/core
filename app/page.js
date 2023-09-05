@@ -4,11 +4,7 @@ export default function Home() {
   return (
     <div class="lg:flex items-center justify-center">
       <div class="lg:w-1/2 items-center h-screen min-h-screen justify-center lg:flex hidden">
-        <Image
-          src="/logo.png"
-          width={400}
-          height={400}
-        />
+        <Image src="/logo.png" width={400} height={400} />
       </div>
 
       <div class="lg:w-1/2">
