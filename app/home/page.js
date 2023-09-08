@@ -1,29 +1,21 @@
 "use client";
 import { useSession, signOut } from "next-auth/react";
 import { Web3Button } from "@web3modal/react";
-import Navbar from "../modules/home/components/Navbar";
+import { isMobile } from "mobile-device-detect";
+
 import { useAccount } from "wagmi";
 
 export default function page() {
-  const { status, data } = useSession();
-  const {
-    account,
-    isConnecting,
-    isConnected,
-    status: web3Status,
-  } = useAccount();
+  const { status } = useSession();
+  const { status: web3Status } = useAccount();
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
 
-      <div className="flex flex-row items-center justify-center h-screen">
-        <div className="w-[25%] h-screen min-h-screen "></div>
-        <div className=""></div>
-        <div className="w-[25%] h-screen min-h-screen"></div>
-        {/* //main */}
-        {/* trending */}
-      </div>
+      {isMobile ? "this is mobile phone" : "this is not mobile phone"}
+
+      <Web3Button />
 
       <div className="flex flex-col items-center justify-center h-screen">
         <h1 className="text-2xl xl:text-3xl font-extrabold">

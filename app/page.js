@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Web2Model from "./web2Login";
+import Web2Model from "./components/web2LoginButton";
 import { Web3Button } from "@web3modal/react";
 import { useAccount } from "wagmi";
 import { useRouter } from "next/navigation";

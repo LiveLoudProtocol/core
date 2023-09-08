@@ -32,7 +32,7 @@
     "src/pages/signUp.jsx",
     "src/pages/login.jsx",
     ".next/types/**/*.ts"
-, "app/web3Login.jsx"  ],
+, "app/web3Login.jsx", "app/test/lib/context/window-context.jsx", "app/test/components/layout/common-layout.jsx", "app/test/components/aside/aside-trends.jsx", "app/test/lib/date.js", "app/components/home/ui/loading.jsx", "app/components/home/ui/hero-icon.tsx", "app/components/web2LoginButton.jsx"  ],
   "exclude": [
     "node_modules"
   ]
