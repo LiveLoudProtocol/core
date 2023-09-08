@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { signIn } from "next-auth/react";
 
 const style = {
   position: "absolute" as "absolute",
@@ -17,17 +18,13 @@ const style = {
   p: 4,
 };
 
-export default function Web2Model({ isOpen }) {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+export default function Web2Model() {
   return (
     <div>
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <button
-        onClick={handleOpen}
-        className="w-72 pr-2 max-w-xs font-bold shadow-sm rounded-lg py-2 bg-white text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
+        onClick={() => signIn("google")}
+        className="w-72 pr-2 max-w-xs font-bold shadow-sm rounded-xl py-2 bg-white text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out hover:outline  hover:shadow focus:shadow-sm focus:shadow-outline"
       >
         <div className="bg-white p-1 rounded-full">
           <svg
@@ -55,9 +52,9 @@ export default function Web2Model({ isOpen }) {
             ></path>
           </svg>
         </div>
-        <span className="ml-1 bg-white">Sign Up with Web2</span>
+        <span className="ml-1 bg-white">Continue With Google</span>
       </button>
-      <Modal
+      {/* <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -71,7 +68,7 @@ export default function Web2Model({ isOpen }) {
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
           </Typography>
         </Box>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }
