@@ -1,23 +1,23 @@
 "use client";
 import Image from "next/image";
 import Web2Model from "./components/web2LoginButton";
-import { Web3Button } from "@web3modal/react";
-import { useAccount } from "wagmi";
 import { useRouter } from "next/navigation";
-import { Waveform } from "@uiball/loaders";
+import useMetaMask from "./hooks/useMetaMask";
 
 export default function Home() {
   const router = useRouter();
-  const { account, isConnecting, isConnected } = useAccount();
-  if (isConnecting) {
-    return (
-      <div className="w-full min-h-screen flex items-center justify-center h-screen">
-        <Waveform size={40} lineWeight={3.5} speed={1} color="black" />
-      </div>
-    );
-  }
 
-  if (isConnected) {
+  const {connectWallet, status } = useMetaMask();
+
+  // if (isConnecting) {
+  //   return (
+  //     <div className="w-full min-h-screen flex items-center justify-center h-screen">
+  //       <Waveform size={40} lineWeight={3.5} speed={1} color="black" />
+  //     </div>
+  //   );
+  // }
+
+  if (status === "connected") {
     router.replace("/home");
   }
 
@@ -38,8 +38,11 @@ export default function Home() {
                 <div className="flex gap-2 flex-col items-center">
                   <Web2Model />
                   {/* <Web3Model /> */}
+                  {connectWallet()}
 
-                  <Web3Button />
+                  {/* <OtherWeb3Model /> */}
+
+                  {/* <Web3Button /> */}
 
                   <div className="w-full max-w-xs font-bold  rounded-lg py-3 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out mt-5">
                     <span className="w-full mr-2 border"></span>
