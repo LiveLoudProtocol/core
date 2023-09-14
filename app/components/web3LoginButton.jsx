@@ -1,5 +1,8 @@
 "use client";
+import { ConnectKitButton } from "connectkit";
+import { useRouter } from "next/navigation";
 import * as React from "react";
+import { useAccount } from "wagmi";
 
 const style = {
   position: "absolute",
@@ -16,28 +19,36 @@ const style = {
 export default function Web3Model() {
   return (
     <div>
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
-      <button className="w-72 pr-2 max-w-xs font-bold shadow-sm rounded-xl py-2 bg-white text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out hover:outline  hover:shadow focus:shadow-sm focus:shadow-outline">
-        <div className="bg-white p-1 rounded-full">
-          <img className="w-6 h-6" src="/metamask.svg" />
-        </div>
-        <span className="ml-1 bg-white">Log In With MetaMask</span>
-      </button>
-      {/* <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            web2 modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal> */}
+      <ConnectKitButton.Custom>
+        {({
+          isConnected,
+          isConnecting,
+          show,
+          hide,
+          address,
+          ensName,
+          chain,
+        }) => {
+          return (
+            <button
+              className="w-72 pr-2 max-w-xs font-bold shadow-sm rounded-xl py-2 bg-white text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out hover:outline  hover:shadow focus:shadow-sm focus:shadow-outline"
+              onClick={show}
+              // style={yourButtonStyle}
+            >
+              <div className="bg-white p-1 rounded-full">
+                <img className="w-6 h-6" src="/metamask.svg" />
+              </div>
+              <span className="ml-1 bg-white">
+                {isConnected
+                  ? address.slice(0, 4) +
+                    "..." +
+                    address.slice(address.length - 4)
+                  : "Log In With MetaMask"}
+              </span>
+            </button>
+          );
+        }}
+      </ConnectKitButton.Custom>
     </div>
   );
 }

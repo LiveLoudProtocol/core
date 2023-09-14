@@ -1,25 +1,21 @@
 "use client";
 import Image from "next/image";
 import Web2Model from "./components/web2LoginButton";
+import Web3Model from "./components/web3LoginButton";
 import { useRouter } from "next/navigation";
-import useMetaMask from "./hooks/useMetaMask";
+import { useAccount } from "wagmi";
+import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
+  const { address, status } = useAccount();
+  
+  useEffect(() => {
+    if (status === "connected") {
+      router.replace("/home");
+    }
+  }, [status]);
 
-  const {connectWallet, status } = useMetaMask();
-
-  // if (isConnecting) {
-  //   return (
-  //     <div className="w-full min-h-screen flex items-center justify-center h-screen">
-  //       <Waveform size={40} lineWeight={3.5} speed={1} color="black" />
-  //     </div>
-  //   );
-  // }
-
-  if (status === "connected") {
-    router.replace("/home");
-  }
 
   return (
     <>
@@ -37,12 +33,7 @@ export default function Home() {
               <div className="w-full flex-1 mt-8">
                 <div className="flex gap-2 flex-col items-center">
                   <Web2Model />
-                  {/* <Web3Model /> */}
-                  {connectWallet()}
-
-                  {/* <OtherWeb3Model /> */}
-
-                  {/* <Web3Button /> */}
+                  <Web3Model />
 
                   <div className="w-full max-w-xs font-bold  rounded-lg py-3 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out mt-5">
                     <span className="w-full mr-2 border"></span>

@@ -2,6 +2,7 @@
 import { useSession } from "next-auth/react";
 import { isMobile } from "mobile-device-detect";
 import useMetaMask from "app/hooks/useMetaMask";
+import SideBar from "app/components/sideBar"
 
 export default function page() {
   const { status } = useSession();
@@ -11,7 +12,8 @@ export default function page() {
     <div>
       {/* <Navbar /> */}
 
-      {isMobile ? "this is mobile phone" : "this is not mobile phone"}
+      {/* {isMobile ? "this is mobile phone" : "this is not mobile phone"} */}
+      <SideBar/>
 
       <div className="flex flex-col items-center justify-center h-screen">
         <h1 className="text-2xl xl:text-3xl font-extrabold">
