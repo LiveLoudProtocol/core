@@ -8,6 +8,13 @@
 } */
 
 
+body, html {
+    overflow: hidden;
+    height: 100%;
+    
+  }
+
+
 .hexagon-container {
     width: 100%;
     padding-top: 115.47%; /* Aspect ratio for a regular hexagon */
@@ -36,17 +43,17 @@ body {
 }
 
 .sidebar {
-    width: 290px;
+    /* width: 290px; */
     display: block;
     background-color: #FFFFFF;
-    border-radius: 25px;
+    /* border-radius: 25px; */
     padding-bottom: 35px;
 }
 
 .sidebar__brand {
     color: #1DA1F2;
     font-size: 38px;
-    padding-left: 35px;
+    /* padding-left: 35px; */
     padding-top: 35px;
 }
 
@@ -55,7 +62,7 @@ body {
     text-decoration: none;
     margin-top: 25px;
     padding-right: 15px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 10px;
@@ -81,7 +88,7 @@ body {
 }
 
 .sidebar__item__text {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     color: #5B5C5E;
     font-weight: bold;

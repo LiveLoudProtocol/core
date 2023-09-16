@@ -1,6 +1,6 @@
 import SideBar from "app/components/sideBar";
-import RightBar from "app/components/rightBar";
 import React from "react";
+import SuggesionBar from "../components/profile/suggetionBar";
 
 export default function HomeLayout({ children }) {
   return (
@@ -9,7 +9,7 @@ export default function HomeLayout({ children }) {
         <div className="flex justify-center min-h-screen">
           <SideBar />
           <div>{children}</div>
-          <RightBar  />
+          <SuggesionBar  />
 
         </div>
       </body>
