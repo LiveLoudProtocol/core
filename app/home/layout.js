@@ -8,7 +8,7 @@ export default function HomeLayout({ children }) {
       <body className=" xl:48   ">
         <div className="flex justify-center min-h-screen">
           <SideBar />
-          <div>{children}</div>
+          <div className="p-4">{children}</div>
           <RightBar  />
 
         </div>
