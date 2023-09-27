@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 import {
-    ChartBarIcon,
-    ChatBubbleLeftRightIcon,
-    FilmIcon,
-    PencilSquareIcon,
-    RectangleGroupIcon,
-    RectangleStackIcon
-  } from '@heroicons/react/24/outline';
-import TabButton from '../components/TabButton'
+  ChartBarIcon,
+  ChatBubbleLeftRightIcon,
+  FilmIcon,
+  PencilSquareIcon,
+  RectangleGroupIcon,
+  RectangleStackIcon,
+} from "@heroicons/react/24/outline";
+import TabButton from "../components/TabButton";
 
 export default function FeedType() {
   return (
@@ -16,49 +16,41 @@ export default function FeedType() {
         <TabButton
           name={`Feed`}
           icon={<PencilSquareIcon className="h-4 w-4" />}
-          active={feedType === ProfileFeedType.Feed}
-          type={ProfileFeedType.Feed.toLowerCase()}
-          onClick={() => switchTab(ProfileFeedType.Feed)}
+            active={true}
+            type={"feed"}
+          //   onClick={() => switchTab(ProfileFeedType.Feed)}
         />
         <TabButton
           name={`Replies`}
           icon={<ChatBubbleLeftRightIcon className="h-4 w-4" />}
-          active={feedType === ProfileFeedType.Replies}
-          type={ProfileFeedType.Replies.toLowerCase()}
-          onClick={() => switchTab(ProfileFeedType.Replies)}
+          //   active={feedType === ProfileFeedType.Replies}
+          //   type={ProfileFeedType.Replies.toLowerCase()}
+          //   onClick={() => switchTab(ProfileFeedType.Replies)}
         />
         <TabButton
           name={`Media`}
           icon={<FilmIcon className="h-4 w-4" />}
-          active={feedType === ProfileFeedType.Media}
-          type={ProfileFeedType.Media.toLowerCase()}
-          onClick={() => switchTab(ProfileFeedType.Media)}
+          //   active={feedType === ProfileFeedType.Media}
+          //   type={ProfileFeedType.Media.toLowerCase()}
+          //   onClick={() => switchTab(ProfileFeedType.Media)}
         />
         <TabButton
           name={`Collected`}
           icon={<RectangleStackIcon className="h-4 w-4" />}
-          active={feedType === ProfileFeedType.Collects}
-          type={ProfileFeedType.Collects.toLowerCase()}
-          onClick={() => switchTab(ProfileFeedType.Collects)}
+          //   active={feedType === ProfileFeedType.Collects}
+          //   type={ProfileFeedType.Collects.toLowerCase()}
+          //   onClick={() => switchTab(ProfileFeedType.Collects)}
         />
         <TabButton
           name={`Gallery`}
           icon={<RectangleGroupIcon className="h-4 w-4" />}
-          active={feedType === ProfileFeedType.Gallery}
-          type={ProfileFeedType.Gallery.toLowerCase()}
-          onClick={() => switchTab(ProfileFeedType.Gallery)}
+          //   active={feedType === ProfileFeedType.Gallery}
+          //   type={ProfileFeedType.Gallery.toLowerCase()}
+          //   onClick={() => switchTab(ProfileFeedType.Gallery)}
         />
-        {IS_MAINNET ? (
-          <TabButton
-            name={`Stats`}
-            icon={<ChartBarIcon className="h-4 w-4" />}
-            active={feedType === ProfileFeedType.Stats}
-            type={ProfileFeedType.Stats.toLowerCase()}
-            onClick={() => switchTab(ProfileFeedType.Stats)}
-          />
-        ) : null}
+        
       </div>
-      {feedType === ProfileFeedType.Media ? <MediaFilter /> : null}
+      {/* {feedType === ProfileFeedType.Media ? <MediaFilter /> : null} */}
     </div>
-  )
+  );
 }

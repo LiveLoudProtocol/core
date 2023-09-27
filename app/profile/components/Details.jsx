@@ -16,47 +16,47 @@ export default function Details() {
           <div className="truncate">John Doe</div>
         </div>
         <div className="flex items-center space-x-3">
-          <div className="text-sm sm:text-base">@johndoe123</div>
+          <div className="text-sm sm:text-base bg-clip-text bg-gradient-to-r from-blue-600 to-red-600 text-transparent">@johndoe123</div>
         </div>
       </div>
       <div className="markup linkify text-md mr-0 break-words sm:mr-10">
         <div>Profile bio goes here.</div>
       </div>
       <div className="space-y-5">
-        <div>Scam warning goes here.</div>
-        <div>Followerings go here.</div>
+        {/* <div>Scam warning goes here.</div>
+        <div>Followerings go here.</div> */}
         <div className="flex items-center space-x-2">
-          <div className="rounded-full bg-gray-200 px-2 py-0.5 text-xs dark:bg-gray-700">
-            Follows you
-          </div>
+          {/* <div className="rounded-full bg-gray-200 px-2 py-0.5 text-xs dark:bg-gray-700">
+            Follows you 
+          </div> */}
         </div>
       </div>
       <div className="divider w-full" />
       <div className="space-y-2">
         <div>
-          <Tooltip content={`#123456`}>
+          {/* <Tooltip content={`#123456`}>
             <div>
               <a href="#" target="_blank" rel="noreferrer">
                 123456
               </a>
             </div>
-          </Tooltip>
+          </Tooltip> */}
         </div>
-        <div>Location goes here.</div>
-        <div>
+        {/* <div>Location goes here.</div> */}
+        {/* <div>
           <Tooltip content="Website">
             <a href="#" target="_blank" rel="noreferrer noopener">
               Website
             </a>
           </Tooltip>
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <Tooltip content="X Logo">
             <a href="#" target="_blank" rel="noreferrer noopener">
               X Link
             </a>
           </Tooltip>
-        </div>
+        </div> */}
       </div>
       <div className="divider w-full" />
       <div>Invited by goes here.</div>
