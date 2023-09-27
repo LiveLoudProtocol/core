@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export default function SideBar() {
@@ -5,6 +6,7 @@ export default function SideBar() {
     <aside class="content overflow-x-hidden w-fit float-left h-screen overflow-y-auto ">
       <div class="sidebar w-fit md:w-[290px] h-screen min-h-fit">
         <div class="sidebar__brand pl-[20px] md:pl-[40px]">
+          <img  src="/logo.png" className="w-10 h-10" />
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
