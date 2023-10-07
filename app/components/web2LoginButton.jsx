@@ -20,9 +20,9 @@ export default function Web2Model() {
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <button
         onClick={() => signIn("google")}
-        className="w-72 pr-2 max-w-xs font-bold shadow-sm rounded-xl py-2 bg-white text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out hover:outline  hover:shadow focus:shadow-sm focus:shadow-outline"
+        className="w-72 pr-2 max-w-xs font-bold shadow-sm round-xl py-2 bg-white text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out hover:outline  hover:shadow focus:shadow-sm focus:shadow-outline"
       >
-        <div className="bg-white p-1 rounded-full">
+        <div className="bg-white p-1 round-full">
           <svg
             className="w-6 h-6 bg-inherit"
             xmlns="http://www.w3.org/2000/svg"

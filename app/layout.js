@@ -1,15 +1,19 @@
 "use client";
 import NextAuthProvider from "./Providers";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import { WagmiConfig, createConfig } from "wagmi";
 import {
   ConnectKitProvider,
   ConnectKitButton,
   getDefaultConfig,
 } from "connectkit";
+import Navbar from "./components/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export const metadata = {
   title: "Liveloud",
@@ -26,20 +30,21 @@ const config = createConfig(
     appName: "LiveLoud",
 
     // Optional
-    appDescription: "Your App Description",
-    appUrl: "https://family.co", // your app's url
-    appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
+    // appDescription: "Your App Description",
+    // appUrl: "https://family.co", // your app's url
+    // appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
   })
 );
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <NextAuthProvider>
           <WagmiConfig config={config}>
             <ConnectKitProvider>
               {/* <ConnectKitButton /> */}
+              {/* <Navbar/> */}
               {children}
             </ConnectKitProvider>
           </WagmiConfig>

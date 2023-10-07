@@ -1,14 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
-
-export default function SideBar() {
+export default function SideBarPlaceHolder() {
   return (
-    <aside class="content border-r-2 overflow-x-hidden w-fit float-left h-screen overflow-y-auto ">
-      <div class="sidebar w-fit md:w-[290px] h-screen min-h-fit">
+    <aside class="content  overflow-x-hidden w-fit float-left h-screen overflow-y-auto ">
+      <div class="sidebar w-fit mr-5 md:w-[275px] h-screen min-h-fit">
         <div class="sidebar__brand pl-[20px] md:pl-[40px]">
-          <img  src="/logo.png" className="w-10 h-10" />
+          <img src="/logo.png" className="w-10 h-10" />
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -116,5 +115,5 @@ export default function SideBar() {
         </Link>
       </div>
     </aside>
-  );
+  )
 }

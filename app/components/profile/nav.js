@@ -1,5 +1,6 @@
-import ParseAddress from "@/app/helpers/addressParser";
+// import ParseAddress from "@/app/helpers/addressParser";
 import React from "react";
+import ParseAddress from "../../helpers/addressParser";
 
 export default function Nav({ userName, address }) {
   return (

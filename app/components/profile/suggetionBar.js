@@ -6,7 +6,7 @@ export default function SuggesionBar() {
       <div class=" min-w-fit md:w-[320px] overflow-x-hidden h-screen min-h-fit">
         <section className="py-6 px-4 flex flex-col  bg-white">
           <div className=" ">
-            <div className=" p-4 shadow rounded-lg bg-white flex flex-col justify-center">
+            <div className=" p-4 shadow round-lg bg-white flex flex-col justify-center">
               <h1 className="text-xl font-bold">You might like</h1>
               
               

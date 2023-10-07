@@ -11,15 +11,15 @@ export default function Header({ banner, image}) {
       </div>
 
       <div className="relative w-full flex z-10 mt-[135px] flex-row px-4 items-center justify-between">
-        <div className="w-32 h-32 flex border-4 rounded-full">
+        <div className="w-32 h-32 flex border-4 round-full">
           <img
-            className="rounded-full w-full h-full object-cover"
+            className="round-full w-full h-full object-cover"
             src="https://hindistatusnow.com/wp-content/uploads/2023/01/Smile-Whatsapp-DP-Images-9.jpg"
           />
         </div>
         <a
           href="#"
-          class="text-gray-800 hover:text-black border border-black px-4 py-1 rounded-full hover:bg-gray-200 mt-12"
+          class="text-gray-800 hover:text-black border border-black px-4 py-1 round-full hover:bg-gray-200 mt-12"
         >
           <span class="buttons__text ">Edit Profile</span>
         </a>

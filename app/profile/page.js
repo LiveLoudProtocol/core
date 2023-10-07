@@ -3,22 +3,40 @@ import Cover from './components/Cover'
 import Details from './components/Details'
 import { GridItemEight, GridItemFour, GridLayout } from './layouts/GridLayout'
 import FeedType from './layouts/FeedType'
+import Feed from '../components/Feed'
+import SideBar from './components/sideBar'
+import BottomBar from './components/BottomBar'
+import SideBarPlaceHolder from './components/sideBarPlaceHolder'
+import RecommendProfileCard from './components/recommendProfileCard'
 
-export default function page() {
+export default function Profile() {
   return (
     <>
-    <Cover/>
-    <GridLayout className="pt-6">
+      <SideBarPlaceHolder />
+      <Cover />
+      <GridLayout className="pt-6">
         <GridItemFour>
-          <Details
-            // profile={profile as Profile}
-            // following={Boolean(following)}
-            // setFollowing={setFollowing}
-          />
+          <Details />
+          <div className="hidden md:flex  py-4 -px-6 round-lg bg-white  flex-col justify-center">
+            <h1 className="text-xl font-bold">Recommend Profiles</h1>
+            <h1 className="text-xs my-1 text-gray-600 font-bold">
+              Follow New Personolities.
+            </h1>
+            <div className="my-2  w-full">
+              <RecommendProfileCard />
+              <RecommendProfileCard />
+            </div>
+          </div>
         </GridItemFour>
-        <GridItemEight className="space-y-5">
-          
-          <FeedType  />
+        <GridItemEight className="space-y-1">
+          <FeedType />
+          <div className="py-8 h-screen md:overflow-y-scroll">
+            <Feed />
+            <Feed />
+            <Feed />
+            <Feed />
+            <Feed />
+          </div>
           {/* {currentProfile?.id === profile?.id ? <NewPost /> : null}
           {feedType === ProfileFeedType.Feed ||
           feedType === ProfileFeedType.Replies ||

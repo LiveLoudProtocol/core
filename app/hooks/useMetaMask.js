@@ -147,9 +147,9 @@ function useMetaMask() {
       <div>
         <button
           onClick={status === "disconnected" ? connectToMetaMask : handleClick}
-          className="w-72 pr-2 max-w-xs font-bold shadow-sm rounded-xl py-2 bg-white text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out hover:outline  hover:shadow focus:shadow-sm focus:shadow-outline"
+          className="w-72 pr-2 max-w-xs font-bold shadow-sm round-xl py-2 bg-white text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out hover:outline  hover:shadow focus:shadow-sm focus:shadow-outline"
         >
-          <div className="bg-white p-1 rounded-full">
+          <div className="bg-white p-1 round-full">
             <img className="w-6 h-6" src="/metamask.svg" alt="MetaMask" />
           </div>
           <span className="ml-1 bg-white">
@@ -176,7 +176,7 @@ function useMetaMask() {
                     <div>
                       <img
                         src="/eth.webp"
-                        className="rounded-full w-9 h-9 mb-2"
+                        className="round-full w-9 h-9 mb-2"
                       />
                       <p className="font-bold">
                         {currentAccount.slice(0, 4) +
@@ -184,8 +184,8 @@ function useMetaMask() {
                           currentAccount.slice(currentAccount.length - 2)}
                       </p>
                     </div>
-                    <div className="flex item-center justify-center border rounded-full p-2 m-2 text-center">
-                      <span className="w-4 h-4 self-center bg-green-500 rounded-full mr-2"></span>
+                    <div className="flex item-center justify-center border round-full p-2 m-2 text-center">
+                      <span className="w-4 h-4 self-center bg-green-500 round-full mr-2"></span>
                       <span>{status}</span>
                     </div>
                   </div>
@@ -194,7 +194,7 @@ function useMetaMask() {
                   <div className="flex px-1 mt-1 items-center justify-between">
                     <div className="flex gap-1">
                       <img
-                        className="w-6 h-6 rounded-full bg-clip-content "
+                        className="w-6 h-6 round-full bg-clip-content "
                         src="/eth.webp"
                       />
                       <span className="font-bold">
@@ -204,7 +204,7 @@ function useMetaMask() {
 
                     <div
                       onClick={handleDisconnect}
-                      className=" p-1 transition-all ease-in duration-[25ms] hover:text-opacity-100 hover:bg-gray-400 rounded-lg hover:opacity-80 cursor-pointer flex flex-col items-center justify-center"
+                      className=" p-1 transition-all ease-in duration-[25ms] hover:text-opacity-100 hover:bg-gray-400 round-lg hover:opacity-80 cursor-pointer flex flex-col items-center justify-center"
                     >
                       <LogoutIcon />
                       <p>Disconnect</p>

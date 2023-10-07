@@ -5,8 +5,8 @@ import React from "react";
 
 export default function SideBar() {
   return (
-    <aside class="content border-r-2 overflow-x-hidden w-fit float-left h-screen overflow-y-auto ">
-      <div class="sidebar w-fit md:w-[290px] h-screen min-h-fit">
+    <aside class="content  border-r-2 overflow-x-hidden w-fit float-left h-screen overflow-y-auto ">
+      <div class="sidebar pt-4 w-fit md:w-[270px] h-screen min-h-fit">
         <div class="sidebar__brand pl-[20px] md:pl-[40px]">
           <img  src="/logo.png" className="w-10 h-10" />
           {/* <svg

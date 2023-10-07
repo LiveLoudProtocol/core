@@ -1,21 +1,20 @@
-"use client";
-import Image from "next/image";
-import Web2Model from "./components/web2LoginButton";
-import Web3Model from "./components/web3LoginButton";
-import { useRouter } from "next/navigation";
-import { useAccount } from "wagmi";
-import { useEffect } from "react";
+'use client'
+import Image from 'next/image'
+import Web2Model from './components/web2LoginButton'
+import Web3Model from './components/web3LoginButton'
+import { useRouter } from 'next/navigation'
+import { useAccount } from 'wagmi'
+import { useEffect } from 'react'
 
 export default function Home() {
-  const router = useRouter();
-  const { address, status } = useAccount();
-  
-  useEffect(() => {
-    if (status === "connected") {
-      router.replace("/home");
-    }
-  }, [status]);
+  const router = useRouter()
+  const { address, status } = useAccount()
 
+  useEffect(() => {
+    if (status === 'connected') {
+      router.replace('/profile')
+    }
+  }, [status])
 
   return (
     <>
@@ -27,15 +26,18 @@ export default function Home() {
         <div class="lg:w-1/2">
           <div className="p-12">
             <div className="mt-12 flex flex-col items-center">
-              <h1 className="text-2xl xl:text-3xl font-extrabold">
-                Sign up for Liveloud
+              <h1 className="text-2xl xl:text-3xl font-">
+                Sign up for{' '}
+                <span className="uppercase">
+                  Live<span className="font-extrabold">loud</span>
+                </span>
               </h1>
               <div className="w-full flex-1 mt-8">
                 <div className="flex gap-2 flex-col items-center">
                   <Web2Model />
                   <Web3Model />
 
-                  <div className="w-full max-w-xs font-bold  rounded-lg py-3 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out mt-5">
+                  <div className="w-full max-w-xs font-bold  round-lg py-3 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out mt-5">
                     <span className="w-full mr-2 border"></span>
                     <span className="">or</span>
                     <span className="w-full ml-2 border"></span>
@@ -43,7 +45,7 @@ export default function Home() {
                 </div>
 
                 <div className="mx-auto max-w-xs">
-                  <button className="mt-5 tracking-wide font-semibold bg-sky-500 text-gray-100 w-full py-4 rounded-lg hover:bg-sky-600 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                  <button className="mt-5 tracking-wide font-semibold bg-sky-500 text-gray-100 w-full py-4 round-lg hover:bg-sky-600 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                     <svg
                       class="svg-icon mr-2 w-6 h-6 bg-inherit"
                       // style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
@@ -74,14 +76,14 @@ export default function Home() {
                     <span className=" bg-inherit ">Sign Up As Guest</span>
                   </button>
                   <p className="mt-6 text-xs text-gray-600 text-center">
-                    I agree to abide by Liveloud's{" "}
+                    I agree to abide by Liveloud's{' '}
                     <a
                       href="#"
                       className="border-b border-gray-500 border-dotted"
                     >
                       Terms of Service
-                    </a>{" "}
-                    and its{" "}
+                    </a>{' '}
+                    and its{' '}
                     <a
                       href="#"
                       className="border-b border-gray-500 border-dotted"
@@ -96,5 +98,5 @@ export default function Home() {
         </div>
       </div>
     </>
-  );
+  )
 }

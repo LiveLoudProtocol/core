@@ -12,7 +12,7 @@ const Cover: FC<CoverProps> = ({ cover }) => {
       className="h-52 sm:h-80 w-screen"
       data-testid="profile-cover"
       style={{
-        backgroundImage: `url(${"https://upload.wikimedia.org/wikipedia/commons/3/3d/Color-lines-abstract-wide-wallpaper-1440x900-025.jpg"})`,
+        backgroundImage: `url(${"https://picsum.photos/1400/900"})`,
         backgroundColor: colors.violet[500],
         backgroundSize: cover ? "cover" : "30%",
         backgroundPosition: "center center",

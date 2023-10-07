@@ -1,18 +1,22 @@
-import SideBar from "app/components/sideBar";
-import React from "react";
-import SuggesionBar from "../components/profile/suggetionBar";
+import React from 'react'
+import SuggesionBar from '../components/profile/suggetionBar'
+import { TabContextProvider } from './tabContext'
+import SideBar from './components/sideBar'
 
 export default function HomeLayout({ children }) {
   return (
     <html lang="en">
       <body className=" xl:48  bg-white ">
-        <div className="flex justify-center min-h-screen">
-          {/* <SideBar /> */}
-          <div>{children}</div>
-          {/* <SuggesionBar  /> */}
-
-        </div>
+        <TabContextProvider>
+          <div className="flex relative justify-center min-h-screen">
+            <aside className="fixed  left-0">
+              <SideBar />
+            </aside>
+            
+            <div>{children}</div>
+          </div>
+        </TabContextProvider>
       </body>
     </html>
-  );
+  )
 }
