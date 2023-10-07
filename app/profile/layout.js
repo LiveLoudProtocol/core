@@ -13,7 +13,8 @@ export default function HomeLayout({ children }) {
               <SideBar />
             </aside>
             
-            <div>{children}</div>
+            <div>
+              {children}</div>
           </div>
         </TabContextProvider>
       </body>

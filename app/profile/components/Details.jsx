@@ -16,7 +16,7 @@ export default function Details() {
           <div className="truncate">John Doe</div>
         </div>
         <div className="flex items-center space-x-3">
-          <div className="text-sm sm:text-base bg-clip-text bg-gradient-to-r from-blue-600 to-red-600 text-transparent">@johndoe123</div>
+          <div className="text-sm sm:text-base bg-clip-text bg-gradient-to-r from-brand-600 to-red-600 text-transparent">@johndoe123</div>
         </div>
       </div>
       <div className="markup linkify text-md mr-0 break-words sm:mr-10">
