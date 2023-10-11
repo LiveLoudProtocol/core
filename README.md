@@ -1,13 +1,7 @@
-# Sample Hardhat Project
+# Liveloud Protocol 
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+The Liveloud Protocol is a decentralised, non-custodial social media platform, which is on-chain social interaction mechanisms analogous to commonly known traditional web2 social media interactions, also significantly expanded with unique functionality like it implements unique feature like content price to be decided by the content creator and also get incentivizes by the followers or users.
 
-Try running some of the following tasks:
+# Setup
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+
