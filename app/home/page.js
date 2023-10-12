@@ -3,7 +3,9 @@ import { useSession } from 'next-auth/react'
 import useMetaMask from 'app/hooks/useMetaMask'
 import { useEffect } from 'react'
 import Feed from '../components/Feed'
+import TimeLine from './components/TimeLine'
 //import TimeLine from '../components/TimeLine'
+
 
 
 export default function page() {
