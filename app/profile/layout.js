@@ -1,5 +1,4 @@
 import React from 'react'
-import SuggesionBar from '../components/profile/suggetionBar'
 import { TabContextProvider } from './tabContext'
 import SideBar from './components/sideBar'
 

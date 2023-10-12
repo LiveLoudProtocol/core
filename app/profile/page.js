@@ -4,8 +4,6 @@ import Details from './components/Details'
 import { GridItemEight, GridItemFour, GridLayout } from './layouts/GridLayout'
 import FeedType from './layouts/FeedType'
 import Feed from '../components/Feed'
-import SideBar from './components/sideBar'
-import BottomBar from './components/BottomBar'
 import SideBarPlaceHolder from './components/sideBarPlaceHolder'
 import RecommendProfileCard from './components/recommendProfileCard'
 

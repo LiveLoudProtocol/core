@@ -1,11 +1,9 @@
 'use client'
 import { useSession } from 'next-auth/react'
-import { isMobile } from 'mobile-device-detect'
 import useMetaMask from 'app/hooks/useMetaMask'
-import SideBar from 'app/components/sideBar'
 import { useEffect } from 'react'
 import Feed from '../components/Feed'
-import TimeLine from './components/TimeLine'
+//import TimeLine from '../components/TimeLine'
 
 
 export default function page() {
@@ -31,7 +29,7 @@ export default function page() {
 
   return (
     <div id="main" className="overflow-y-auto h-screen max-w-4xl">
-      <TimeLine/>
+      <TimeLine />
         <Feed />
     </div>
   )
