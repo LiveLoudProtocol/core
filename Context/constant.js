@@ -50,17 +50,17 @@ import module_reference from "./reference/FollowerOnlyReferenceModule.json";
 //   }
 
 
-export const lensAddress = "0x1A1FEe7EeD918BD762173e4dc5EfDB8a78C924A8";
-export const lensABI = lens.abi;
+export const lensAddress="0x1A1FEe7EeD918BD762173e4dc5EfDB8a78C924A8";
+export const lensABI=lens.abi;
 
-export const lensHubAddress = "0x1A1FEe7EeD918BD762173e4dc5EfDB8a78C924A8";
-export const lensHubABI = lensHubStorage.abi;
+export const lensHubAddress="0x1A1FEe7EeD918BD762173e4dc5EfDB8a78C924A8";
+export const lensHubABI=lensHubStorage.abi;
 
-export const followAddress = "";
-export const followABI = followNFT.abi;
+export const followAddress="";
+export const followABI=followNFT.abi;
 
-export const collectAddress = "";
-export const collectABI = collectNFT.abi;
+export const collectAddress="";
+export const collectABI=collectNFT.abi;
 
 // all files of inside core -> base
 
