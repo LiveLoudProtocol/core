@@ -1,10 +1,10 @@
-const { apolloClient } = require('../apollo-client');
-const { login } = require('../authentication/login');
-const { PROFILE_ID } = require('../config');
-const { getAddressFromSigner } = require('../ethers.service');
-const { FeedRequest, ProfileFeedDocument } = require('../graphql/generated');
+import { apolloClient } from '../apollo-client';
+import { login } from '../authentication/login';
+import { PROFILE_ID } from '../config';
+import { getAddressFromSigner } from '../ethers.service';
+import { FeedRequest, ProfileFeedDocument } from '../graphql/generated';
 
-const getProfileFeedRequest = async (request) => {
+const getProfileFeedRequest = async (request: FeedRequest) => {
   const result = await apolloClient.query({
     query: ProfileFeedDocument,
     variables: {
@@ -15,7 +15,7 @@ const getProfileFeedRequest = async (request) => {
   return result.data.feed;
 };
 
-const profileFeed = async () => {
+export const profileFeed = async () => {
   const profileId = PROFILE_ID;
   if (!profileId) {
     throw new Error('Must define PROFILE_ID in the .env to run this');

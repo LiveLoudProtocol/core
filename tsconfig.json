@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/profile/layouts/FeedType.js", "app/components/Feed/index.js"  ],
+, "app/profile/layouts/FeedType.js", "app/components/Feed/index.js", "Context/dispatcher/disable-dispatcher.ts"  ],
   "exclude": [
     "node_modules"
   ]

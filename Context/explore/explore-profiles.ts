@@ -1,11 +1,12 @@
-const { apolloClient } = require('../apollo-client');
-const {
+import { apolloClient } from '../apollo-client';
+import {
   ExploreProfilesDocument,
+  ExploreProfilesRequest,
   ProfileSortCriteria,
-} = require('../graphql/generated');
+} from '../graphql/generated';
 
 // sort out types by generating them!
-const exploreProfiles = async (request) => {
+export const exploreProfiles = async (request: ExploreProfilesRequest) => {
   const result = await apolloClient.query({
     query: ExploreProfilesDocument,
     variables: {
@@ -16,7 +17,7 @@ const exploreProfiles = async (request) => {
   return result.data.exploreProfiles;
 };
 
-const explore = async () => {
+export const explore = async () => {
   const result = await exploreProfiles({
     sortCriteria: ProfileSortCriteria.MostFollowers,
   });

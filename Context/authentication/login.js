@@ -36,5 +36,6 @@ app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
-
+// export this
+module.exports = { generateChallenge, authenticate, login };
 // dependiencies npm install express body-parser
