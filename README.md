@@ -6,4 +6,4 @@ The Liveloud Protocol is a decentralised, non-custodial social media platform, w
 // all the code for api resolver written on this link once the server will formed all the functionlaity shifted from lens to liveloud
 // https://api-v2-docs.lens.xyz/#introduction
 
-
+# addin auth fetcher file for handling the user codes into it and other stuff present in appolo clinet
