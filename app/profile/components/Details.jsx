@@ -6,7 +6,7 @@ export default function Details() {
     <div className="mb-4 space-y-1 px-5 sm:px-0">
       <div className="relative -mt-24 h-32 w-32 sm:-mt-32 sm:h-52 sm:w-52">
         <div
-          className=" bg-[url('https://picsum.photos/128')] bg-cover h-32 w-32 cursor-pointer round-xl bg-gray-200 ring-8 ring-gray-50 dark:bg-gray-700 dark:ring-black sm:h-52 sm:w-52"
+          className=" bg-[url('https://picsum.photos/128')] bg-cover h-32 w-32 cursor-pointer round-xl bg-gray-200 ring-8 ring-gray-50   sm:h-52 sm:w-52"
           height={128}
           width={128}
         />
