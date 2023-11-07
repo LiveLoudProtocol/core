@@ -369,7 +369,406 @@ const resolver = {
               throw new Error(`Error fetching popular NFT collections: ${error.message}`);
             }
           },
+          profile: (parent, args, context, info) => {
+            // Add your logic here to fetch and return the profile data
+          },
+          Query: {
+            profileActionHistory: async (parent, args, context, info) => {
+              const { request } = args;
+              try {
+                const actionHistory = await getProfileActionHistory(request);
+                return actionHistory;
+              } catch (error) {
+                throw new Error(`Error fetching profile action history: ${error.message}`);
+              }
+            },
+          },
+          Query: {
+            profileAlreadyInvited: async (parent, args, context, info) => {
+              const { request } = args;
+              try {
+                const isAlreadyInvited = await checkIfProfileAlreadyInvited(request);
+                return isAlreadyInvited;
+              } catch (error) {
+                throw new Error(`Error checking if profile is already invited: ${error.message}`);
+              }
+            },
+          },
+          Query: {
+            profileInterestsOptions: (parent, args, context, info) => {
+              try {
+                // Assuming interestsOptions is a predefined list of interests
+                const interestsOptions = ['Interest 1', 'Interest 2', 'Interest 3'];
+                return interestsOptions;
+              } catch (error) {
+                throw new Error(`Error fetching profile interests options: ${error.message}`);
+              }
+            },
+          },
+          Query: {
+            profileManagers: async (parent, args, context, info) => {
+              const { request } = args;
+              try {
+                const managers = await getProfileManagers(request);
+                return managers;
+              } catch (error) {
+                throw new Error(`Error fetching profile managers: ${error.message}`);
+              }
+            },
+          },
+          Query: {
+            profileRecommendations: async (parent, args, context, info) => {
+              const { request } = args;
+              try {
+                const recommendations = await getProfileRecommendations(request);
+                return recommendations;
+              } catch (error) {
+                throw new Error(`Error fetching profile recommendations: ${error.message}`);
+              }
+            },
+          },
+          Query: {
+            profiles: async (parent, args, context, info) => {
+              const { request } = args;
+              try {
+                const profiles = await getProfiles(request);
+                return profiles;
+              } catch (error) {
+                throw new Error(`Error fetching profiles: ${error.message}`);
+              }
+            },
+          },
+          Query: {
+            profilesManaged: async (parent, args, context, info) => {
+              const { request } = args;
+              try {
+                const managedProfiles = await getProfilesManaged(request);
+                return managedProfiles;
+              } catch (error) {
+                throw new Error(`Error fetching managed profiles: ${error.message}`);
+              }
+            },
+          },
+          Query: {
+            profilesManaged: async (parent, args, context, info) => {
+              const { request } = args;
+              try {
+                const managedProfiles = await getProfilesManaged(request);
+                return managedProfiles;
+              } catch (error) {
+                throw new Error(`Error fetching managed profiles: ${error.message}`);
+              }
+            },
+          },
+          Query: {
+            publicationsTags: async (parent, args, context) => {
+              // Here you would implement the logic to fetch publication tags based on the provided arguments.
+              // You can use args.request to access the request object.
+        
+              // For example, if you're using a database, you might have something like:
+              // const tags = await Database.fetchPublicationTags(args.request);
+        
+              // Replace the below line with the actual data fetching logic.
+              // const tags = /* ... */;
+        
+              return tags;
+            }
+          },
+          Query: {
+            relayQueues: async (parent, args, context) => {
+              // Here you would implement the logic to fetch relay queues.
+        
+              // For example, if you're using a database, you might have something like:
+              // const relayQueues = await Database.fetchRelayQueues();
+        
+              // Replace the below line with the actual data fetching logic.
+              // const relayQueues = /* ... */;
+        
+              return relayQueues;
+            }
+          },
+          Query: {
+            revenueFromPublication: async (parent, args, context) => {
+              const { request } = args;
+        
+              // Assuming you have a function to fetch revenue data
+              const revenueData = await fetchRevenueData(request);
+        
+              return {
+                revenue: {
+                  total: {
+                    asset: {
+                      // Assuming you have a function to fetch Erc20 data
+                      ...fetchErc20Data(revenueData.asset)
+                    },
+                    value: revenueData.value,
+                    rate: {
+                      asset: {
+                        // Assuming you have a function to fetch Fiat data
+                        ...fetchFiatData(revenueData.rate.asset)
+                      },
+                      value: revenueData.rate.value
+                    }
+                  }
+                }
+              };
+            }
+          },
+          Query: {
+            revenueFromPublications: async (_, { request }, context) => {
+              // Implement the logic to fetch revenue data here
+              // You can use the 'request' variable to access any parameters passed in the query
+        
+              // Example:
+              const items = await fetchRevenueData(request);
+        
+              return {
+                items: items,
+                pageInfo: {
+                  prev: null, // Implement pagination logic if needed
+                  next: null, // Implement pagination logic if needed
+                },
+              };
+            },
+          },
+          Query: {
+            supportedOpenActionCollectModules: async (_, { request }, context) => {
+              // Implement logic to fetch supported open action collect modules data here
+              // You can use the 'request' variable to access any parameters passed in the query
+        
+              // Example:
+              const modules = await fetchSupportedOpenActionCollectModules(request);
+        
+              return {
+                items: modules,
+                pageInfo: {
+                  prev: null, // Implement pagination logic if needed
+                  next: null, // Implement pagination logic if needed
+                },
+              };
+            },
+          },
+          KnownSupportedModule: {
+            moduleName: (module) => module.moduleName,
+            contract: (module) => module.contract,
+            moduleInput: (module) => module.moduleInput,
+            redeemInput: (module) => module.redeemInput,
+            returnDataInput: (module) => module.returnDataInput,
+          },
+          UnknownSupportedModule: {
+            moduleName: (module) => module.moduleName,
+            contract: (module) => module.contract,
+          },
+          
+
     },
+    Query: {
+      searchPublications: async (_, { request }, context) => {
+        // Implement logic to fetch publications data here
+        // You can use the 'request' variable to access any parameters passed in the query
+  
+        // Example:
+        const items = await fetchPublicationsData(request);
+  
+        return {
+          items: items,
+          pageInfo: {
+            prev: null, // Implement pagination logic if needed
+            next: null, // Implement pagination logic if needed
+          },
+        };
+      },
+    },
+    Post: {
+      id: (post) => post.id,
+      publishedOn: (post) => {
+        return {
+          id: post.publishedOn.id,
+        };
+      },
+      // Implement other fields for the Post type here
+      // For example: isHidden, momoka, txHash, createdAt, etc.
+    },
+    Query: {
+      supportedReferenceModules: async (_, { request }, context) => {
+        // Implement logic to fetch supported reference modules data here
+        // You can use the 'request' variable to access any parameters passed in the query
+  
+        // Example:
+        // const modules = await fetchSupportedReferenceModules(request);
+  
+        // Replace the above line with your actual implementation
+  
+        return {
+          items: [], // Replace with the actual list of supported modules
+          pageInfo: {
+            prev: null, // Implement pagination logic if needed
+            next: null, // Implement pagination logic if needed
+          },
+        };
+      },
+    },
+    KnownSupportedModule: {
+      moduleName: (module) => module.moduleName,
+      contract: (module) => module.contract,
+      moduleInput: (module) => module.moduleInput,
+      redeemInput: (module) => module.redeemInput,
+      returnDataInput: (module) => module.returnDataInput,
+    },
+    UnknownSupportedModule: {
+      moduleName: (module) => module.moduleName,
+      contract: (module) => module.contract,
+    },
+    Query: {
+      supportedFollowModules: async (_, { request }, context) => {
+        // Implement logic to fetch supported follow modules data here
+        // You can use the 'request' variable to access any parameters passed in the query
+  
+        // Example:
+        const modules = await fetchSupportedFollowModules(request);
+  
+        return {
+          items: modules,
+          pageInfo: {
+            prev: null, // Implement pagination logic if needed
+            next: null, // Implement pagination logic if needed
+          },
+        };
+      },
+    },
+    KnownSupportedModule: {
+      moduleName: (module) => module.moduleName,
+      contract: (module) => module.contract,
+      moduleInput: (module) => module.moduleInput,
+      redeemInput: (module) => module.redeemInput,
+      returnDataInput: (module) => module.returnDataInput,
+    },
+    UnknownSupportedModule: {
+      moduleName: (module) => module.moduleName,
+      contract: (module) => module.contract,
+    },
+    Query: {
+      supportedOpenActionModules: async (_, { request }, context) => {
+        // Implement logic to fetch supported open action modules data here
+        // You can use the 'request' variable to access any parameters passed in the query
+  
+        // Example:
+        // const modules = await fetchSupportedOpenActionModules(request);
+  
+        // Replace the above line with your actual implementation
+  
+        return {
+          items: [], // Replace with the actual list of supported modules
+          pageInfo: {
+            prev: null, // Implement pagination logic if needed
+            next: null, // Implement pagination logic if needed
+          },
+        };
+      },
+    },
+    KnownSupportedModule: {
+      moduleName: (module) => module.moduleName,
+      contract: (module) => module.contract,
+      moduleInput: (module) => module.moduleInput,
+      redeemInput: (module) => module.redeemInput,
+      returnDataInput: (module) => module.returnDataInput,
+    },
+    UnknownSupportedModule: {
+      moduleName: (module) => module.moduleName,
+      contract: (module) => module.contract,
+    },
+    Query: {
+      supportedReferenceModules: async (_, { request }, context) => {
+        // Implement logic to fetch supported reference modules data here
+        // You can use the 'request' variable to access any parameters passed in the query
+  
+        // Example:
+        // const modules = await fetchSupportedReferenceModules(request);
+  
+        // Replace the above line with your actual implementation
+  
+        return {
+          items: [], // Replace with the actual list of supported modules
+          pageInfo: {
+            prev: null, // Implement pagination logic if needed
+            next: null, // Implement pagination logic if needed
+          },
+        };
+      },
+    },
+    KnownSupportedModule: {
+      moduleName: (module) => module.moduleName,
+      contract: (module) => module.contract,
+      moduleInput: (module) => module.moduleInput,
+      redeemInput: (module) => module.redeemInput,
+      returnDataInput: (module) => module.returnDataInput,
+    },
+    UnknownSupportedModule: {
+      moduleName: (module) => module.moduleName,
+      contract: (module) => module.contract,
+    },
+    Query: {
+
+  
+
+    },
+    Query: {
+      userSigNonces: async (_, __, context) => {
+        try {
+          const sigNonces = await fetchSigNoncesFromDataSource();
+          return sigNonces;
+        } catch (error) {
+          // Handle any errors that may occur during the fetch
+          throw new Error('Unable to retrieve signature nonces');
+        }
+      },
+    },
+    Query: {
+      validatePublicationMetadata: (_, { request }, context) => {
+        try {
+          const validationResult = validatePublicationMetadataFunction(request);
+          return validationResult;
+        } catch (error) {
+          throw new Error('Error validating publication metadata');
+        }
+      },
+    },
+    Query: {
+      verify: (_, { request }, context) => {
+        try {
+          const verificationResult = verifyFunction(request);
+          return verificationResult;
+        } catch (error) {
+          throw new Error('Error during verification');
+        }
+      },
+    },
+    Query: {
+      whoActedOnPublication: (_, { request }, context) => {
+        try {
+          const actedData = fetchWhoActedData(request);
+          return actedData;
+        } catch (error) {
+          throw new Error('Error fetching who acted on publication');
+        }
+      },
+    },
+    Query: {
+      whoActedOnPublication: (_, { request }, context) => {
+        try {
+          const actedData = fetchWhoActedData(request);
+          return actedData;
+        } catch (error) {
+          throw new Error('Error fetching who acted on publication');
+        }
+      },
+    },
+  
+
+
+  
+    
+
 };
 
 module.exports = resolver;
