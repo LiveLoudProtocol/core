@@ -1,3 +1,5 @@
+
+
 const resolver = {
   Query: {
     approvedAuthentications: async (_, { request }) => {
