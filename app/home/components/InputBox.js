@@ -3,9 +3,58 @@ import React, { useState } from 'react'
 import { Editor } from 'react-draft-wysiwyg'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import Image from 'next/image'
+import EmojiPicker from 'emoji-picker-react'
+import Popover from '@mui/material/Popover'
 
 const InputBox = () => {
   const [value, setValue] = useState('')
+  const [images, setImages] = useState([])
+  const [hoveredIndex, setHoveredIndex] = useState(null)
+
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  const open = Boolean(anchorEl)
+  const id = open ? 'simple-popover' : undefined
+
+  const handleImageChange = (event) => {
+    const newImages = Array.from(event.target.files)
+
+    if (newImages.length > 0) {
+      // Create previews for the selected images
+      const promises = newImages.map((file) => {
+        return new Promise((resolve) => {
+          const reader = new FileReader()
+          reader.onloadend = () => {
+            resolve(reader.result)
+          }
+          reader.readAsDataURL(file)
+        })
+      })
+
+      Promise.all(promises).then((imagePreviews) => {
+        setImages([...images, ...imagePreviews])
+      })
+    }
+  }
+
+  const handleInsertImage = () => {
+    // Use the selected images for further processing, e.g., storing in state or submitting
+    // You can access the image data from the `images` state
+    console.log('Selected images:', images)
+  }
+
+  const handleDeleteImage = (index) => {
+    const newImages = [...images]
+    newImages.splice(index, 1)
+    setImages(newImages)
+  }
 
   const updateTextareaHeight = () => {
     const textarea = document.getElementById('autoExpandTextarea')
@@ -24,7 +73,7 @@ const InputBox = () => {
 
   return (
     <div className="mr-5">
-      <div class="flex">
+      <div class="flex overflow-y-auto max-h-[600px]">
         <div class="m-2 w-10 py-1">
           <Image
             class="inline-block h-10 w-10 rounded-full"
@@ -32,6 +81,14 @@ const InputBox = () => {
             alt=""
             width={140}
             height={140}
+          />
+          <input
+            id="imageInput"
+            type="file"
+            accept="image/*"
+            style={{ display: 'none' }}
+            onChange={handleImageChange}
+            multiple
           />
         </div>
         <div class="flex-1 px-2 pt-2 mt-2">
@@ -45,6 +102,30 @@ const InputBox = () => {
             onInput={updateTextareaHeight}
             value={value}
           ></textarea>
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="relative inline-block"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <Image
+                className="inline-block object-cover"
+                src={image}
+                alt={`Selected Image ${index + 1}`}
+                width={446}
+                height={303}
+              />
+              {hoveredIndex === index && (
+                <button
+                  onClick={() => handleDeleteImage(index)}
+                  className="absolute top-0 right-0 p-1 bg-black opacity-70 hover:opacity-90 transition-all ease-in duration-100 py-3 px-2 text-red-500 rounded-bl-xl"
+                >
+                  Remove Image
+                </button>
+              )}
+            </div>
+          ))}
         </div>
       </div>
       <div class="flex">
@@ -53,7 +134,8 @@ const InputBox = () => {
         <div class="w- px-2">
           <div class="flex items-center">
             <div class="flex-1 text-center px-1 py-1 m-2">
-              <a
+              <button
+                onClick={() => document.getElementById('imageInput').click()}
                 href="#"
                 class="mt-1 group flex items-center text-blue-400 px-1 py-1 text-base leading-6 font-medium rounded-full hover:scale-105 "
               >
@@ -68,7 +150,7 @@ const InputBox = () => {
                 >
                   <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                 </svg>
-              </a>
+              </button>
             </div>
 
             {/* <div class="flex-1 text-center py-2 m-2">
@@ -111,7 +193,7 @@ const InputBox = () => {
             </div> */}
 
             <div class="flex-1 text-center py-2 m-2">
-              <a
+              <button onClick={handleClick}
                 href="#"
                 class="mt-1 group flex items-center text-blue-400 px-1 py-1 text-base leading-6 font-medium rounded-full hover:scale-105 "
               >
@@ -126,8 +208,27 @@ const InputBox = () => {
                 >
                   <path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
-              </a>
+              </button>
             </div>
+            <Popover
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+            >
+              <div>
+                <EmojiPicker
+                  onEmojiClick={(e) => {
+                    console.log(e.emoji)
+                    setValue(value + e.emoji)
+                  }}
+                />
+              </div>
+            </Popover>
           </div>
         </div>
 
