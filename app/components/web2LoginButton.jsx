@@ -1,6 +1,8 @@
 "use client";
 import * as React from "react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const style = {
   position: "absolute",
@@ -15,6 +17,11 @@ const style = {
 };
 
 export default function Web2Model() {
+  const router = useRouter();
+  const session = useSession();
+
+
+
   return (
     <div>
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
@@ -48,23 +55,9 @@ export default function Web2Model() {
             ></path>
           </svg>
         </div>
-        <span className="ml-1 bg-white">Continue With Google</span>
+        <span className="ml-1 bg-white">{session?.status == "unauthenticated"?"Continue With Google":session?.status=="loading"?"Loading":session?.data?.user?.name}</span>
       </button>
-      {/* <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            web2 modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal> */}
+      
     </div>
   );
 }

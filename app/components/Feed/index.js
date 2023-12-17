@@ -72,7 +72,7 @@ export default function Feed() {
           <div class="mb-2 text-sm">
             {/* <span class="font-medium mr-2">braydoncoyer</span>  */}
             Lord of the Rings
-            is my favorite film-series. One day I'll make my way to New Zealand
+            is my favorite film-series. One day I&apos;ll make my way to New Zealand
             to visit the Hobbiton set!
           </div>
         </div>

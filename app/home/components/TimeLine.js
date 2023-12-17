@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchBar from './SearchBar'
+import InputBox from './InputBox'
 
 export default function TimeLine() {
   return (
@@ -7,9 +8,12 @@ export default function TimeLine() {
       <div className="py-1 mr-5 border-b-4 border-brand-500">
         <h1 className="font-black  text-xl">Home</h1>
       </div>
-      <div className='py-4'>
+      <InputBox/>
+      <div className='py-4 '>
         <SearchBar/>
+        
       </div>
+      
     </div>
   )
 }

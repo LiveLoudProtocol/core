@@ -5,22 +5,27 @@ import Web3Model from './components/web3LoginButton'
 import { useRouter } from 'next/navigation'
 import { useAccount } from 'wagmi'
 import { useEffect } from 'react'
+import { useSession } from 'next-auth/react'
 
 export default function Home() {
   const router = useRouter()
   const { address, status } = useAccount()
+  const session = useSession();
 
   useEffect(() => {
     if (status === 'connected') {
       router.replace('/profile')
+    }else
+    if(session?.status == "authenticated"){
+      router.replace("/home");
     }
-  }, [status])
+  }, [status, router, session])
 
   return (
     <>
       <div class="lg:flex bg-[#f0ffff] items-center justify-center">
         <div class="lg:w-1/2 bg-transparent items-center h-screen min-h-screen justify-center lg:flex hidden">
-          <Image className="" src="/Tlogo.png" width={400} height={400} />
+          <Image alt='logo' className="" src="/Tlogo.png" width={400} height={400} />
         </div>
 
         <div class="lg:w-1/2">
@@ -76,7 +81,7 @@ export default function Home() {
                     <span className=" bg-inherit ">Sign Up As Guest</span>
                   </button>
                   <p className="mt-6 text-xs text-gray-600 text-center">
-                    I agree to abide by Liveloud's{' '}
+                    I agree to abide by Liveloud&apos;s{' '}
                     <a
                       href="#"
                       className="border-b border-gray-500 border-dotted"

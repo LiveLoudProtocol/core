@@ -5,7 +5,7 @@ import React from 'react'
 export default function HomeLayout({ children }) {
   return (
     <html lang="en">
-      <body className=" xl:48   ">
+      <body className=" xl:48 overflow-y-hidden ">
         <div className="flex relative gap-1 justify-between min-h-screen">
           <aside className=" left-0">
             <SideBar />
