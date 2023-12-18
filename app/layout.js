@@ -9,6 +9,8 @@ import {
   getDefaultConfig,
 } from "connectkit";
 import Navbar from "./components/navbar";
+import NextNProgress from 'nextjs-progressbar';
+
 
 const roboto = Roboto({
   weight: '400',
@@ -45,6 +47,8 @@ export default function RootLayout({ children }) {
             <ConnectKitProvider>
               {/* <ConnectKitButton /> */}
               {/* <Navbar/> */}
+              <NextNProgress />
+
               {children}
             </ConnectKitProvider>
           </WagmiConfig>

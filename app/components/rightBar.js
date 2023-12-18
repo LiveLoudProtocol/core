@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export default function RightBar() {
   return (
@@ -12,13 +12,15 @@ export default function RightBar() {
                 Subscribe to unlock new features and if eligible, receive a
                 share of ads revenue.
               </h1>
-              <button className="bg-brand-500 hover:opacity-95 text-white round-lg px-4 py-2 mt-2">
+              <button
+                className="bg-brand-500 hover:opacity-95 text-white round-lg px-4 py-2 mt-2"
+              >
                 Subscribe
-                </button>
+              </button>
             </div>
           </div>
         </section>
       </div>
     </aside>
-  );
+  )
 }
